@@ -1,19 +1,13 @@
 {
-  "version": 2,
-  "name": "roitai",
-  "builds": [
+  "buildCommand": "prisma generate",
+  "installCommand": "npm install",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "rewrites": [
     {
-      "src": "./server.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "./server.js",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
+      "source": "/(.*)",
+      "destination": "/server.js"
     }
   ]
 }
